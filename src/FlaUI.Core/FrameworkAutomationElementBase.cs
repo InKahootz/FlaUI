@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using FlaUI.Core.AutomationElements;
 using FlaUI.Core.AutomationElements.Infrastructure;
@@ -99,7 +100,7 @@ namespace FlaUI.Core
         /// <param name="property">The <see cref="PropertyId"/> of the property to get the value from.</param>
         /// <param name="value">The out object where the value should be put. Is the default if the property is not supported.</param>
         /// <returns>True if the property is supported and false otherwise.</returns>
-        public bool TryGetPropertyValue<T>(PropertyId property, out T value)
+        public bool TryGetPropertyValue<T>(PropertyId property, [MaybeNullWhen(false)] out T value)
         {
             if (Equals(property, PropertyId.NotSupportedByFramework))
             {
@@ -175,7 +176,7 @@ namespace FlaUI.Core
         /// <param name="pattern">The <see cref="PatternId"/> of the pattern to get.</param>
         /// <param name="nativePattern">The out object where the pattern should be put. Is null if the pattern is not supported.</param>
         /// <returns>True if the pattern is supported and false otherwise.</returns>
-        public bool TryGetNativePattern<T>(PatternId pattern, out T nativePattern)
+        public bool TryGetNativePattern<T>(PatternId pattern, [MaybeNullWhen(false)] out T nativePattern)
         {
             try
             {

@@ -39,7 +39,7 @@ namespace FlaUI.Core
     /// Implementation of the property object.
     /// </summary>
     /// <typeparam name="TVal">The type of the value of the property.</typeparam>
-    public class AutomationProperty<TVal> : IAutomationProperty<TVal>, IEquatable<TVal>, IEquatable<AutomationProperty<TVal>>
+    public class AutomationProperty<TVal> : IAutomationProperty<TVal>, IEquatable<TVal?>, IEquatable<AutomationProperty<TVal>?>
     {
         /// <summary>
         /// Create the property object.
@@ -88,7 +88,7 @@ namespace FlaUI.Core
         /// Implicit operator to convert the property object directly to its value.
         /// </summary>
         /// <param name="automationProperty">The property object which should be converted.</param>
-        public static implicit operator TVal(AutomationProperty<TVal> automationProperty)
+        public static implicit operator TVal?(AutomationProperty<TVal>? automationProperty)
         {
             return automationProperty == null ? default(TVal) : automationProperty.Value;
         }

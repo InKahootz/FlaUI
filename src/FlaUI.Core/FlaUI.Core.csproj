@@ -6,6 +6,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
+	<NoWarn>CS1591</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup Label="Package">
